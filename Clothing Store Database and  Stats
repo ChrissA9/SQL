@@ -1,0 +1,49 @@
+# SQL
+SQL Portfolio
+
+
+
+/** Store Items:
+Shirts (10)
+Jeans (12)
+Jackets (7)
+Shoes (9)
+Shorts (5)
+Sucks (11)
+Pants (10)
+Hats (7)
+Hoodies (10)
+Gloves (5)
+Sandals (4)
+Scarf (7)
+Sunglasses (10)
+Boxers (11)
+Dresses (14)
+**/
+
+CREATE TABLE StoreItems (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, section TEXT );
+
+INSERT INTO StoreItems VALUES (1, "shirts", "UpperBody", 8.99, 10);
+INSERT INTO StoreItems VALUES (2, "Jeans", "LowerBody", 12.99, 12);
+INSERT INTO StoreItems VALUES (3, "Jackets", "UpperBody", 15.99, 7);
+INSERT INTO StoreItems VALUES (4, "Shoes", "LowerBody", 10.99, 9);
+INSERT INTO StoreItems VALUES (5, "Shorts", "LowerBody", 6.99, 5);
+INSERT INTO StoreItems VALUES (6, "Sucks", "LowerBody", 5.99, 11);
+INSERT INTO StoreItems VALUES (7, "Pants", "LowerBody", 9.99, 10);
+INSERT INTO StoreItems VALUES (8, "Hats", "UpperBody", 7.99, 7);
+INSERT INTO StoreItems VALUES (9, "Hoodies", "UpperBody", 10.99, 10);
+INSERT INTO StoreItems VALUES (10, "Gloves", "UpperBody", 5.99, 5);
+INSERT INTO StoreItems VALUES (11, "Sandals", "UpperBody", 9.99, 4);
+INSERT INTO StoreItems VALUES (12, "Scarf", "UpperBody", 7.99, 7);
+INSERT INTO StoreItems VALUES (13, "Sunglasses", "UpperBody", 5.99, 10);
+INSERT INTO StoreItems VALUES (14, "Boxers", "LowerBody", 8.99, 11);
+INSERT INTO StoreItems VALUES (15, "Dresses", "UpperBody", 10.99, 14);
+
+--display the database ordered by price.
+SELECT * FROM StoreItems ORDER BY price desc;
+
+-- what is the avg price of items in the bulk section?
+SELECT  AVG(price) "avg bulk item price" FROM StoreItems WHERE section='bulk';
+
+--what are the most 5 popular items?
+SELECT section, price, name FROM StoreItems ORDER BY name desc limit 5;
